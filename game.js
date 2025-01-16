@@ -9,7 +9,7 @@ var started=false;
 
 //To start game
 
-$(document).on("keydown",function(){
+$(document).on("click",function(){
     if(!started){
     $("#level-title").text("Level "+level);
     nextSequence();
@@ -85,8 +85,11 @@ function checkAnswer(currentLevel){
             $("body").removeClass("game-over");
         },200);
 
-        $("#level-title").text("Game Over, Press Any Key to Restart");
-        startOver();
+        $("#level-title").text("Game Over, Press Here to Restart");
+        $("#level-title").on("click",function(){
+            startOver();
+        });
+        
     }
 
 }
